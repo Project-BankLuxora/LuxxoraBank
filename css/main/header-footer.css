@@ -1,0 +1,97 @@
+/*header and footer share the same row layout: stuff on the left and right, centred vertically*/
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /*pushes the first and last items to the edges*/
+  gap: 24px;
+  padding: 14px var(--page-padding-x);
+}
+
+/*header only: sticks to the top when you scroll*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10; /*keeps it on top of other content*/
+  background: var(--color-page-bg);
+}
+
+/*the nav links in a row*/
+.main-nav {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+}
+
+/*nav links turn dark gold on hover*/
+.main-nav a:hover {
+  color: var(--color-gold-dark);
+}
+
+/*the Log in and Open an account buttons*/
+.site-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/*logo mark and brand name side by side*/
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/*the big gold letter next to the name*/
+.logo-mark {
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 38px;
+  letter-spacing: -0.08em; /*negative = letters pulled closer together*/
+}
+
+/*brand name with the tiny tagline stacked underneath*/
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+/*the tiny tagline under the brand name, pushed to the right*/
+.logo-text small {
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-size: 8px;
+  letter-spacing: 0.4em;
+  text-align: right;
+}
+
+/*footer extras: wraps on small screens, thin line on top, bit more breathing room*/
+.site-footer {
+  flex-wrap: wrap;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+/*footer links reuse .main-nav but smaller and greyer*/
+.site-footer .main-nav {
+  gap: 24px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+/*social links in a row*/
+.social-links {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+}
+
+/*the copyright line, small and grey*/
+.copyright {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}

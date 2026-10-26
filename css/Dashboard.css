@@ -1,0 +1,11 @@
+/* Dashboard – loads after MainPage.css and reuses its colours, fonts and buttons.
+   This file only lists the pieces; each one lives in css/dashboard/. */
+@import url("dashboard/layout.css");
+@import url("dashboard/tabs.css");
+@import url("dashboard/panels.css");
+@import url("dashboard/forms.css");
+@import url("dashboard/settings.css");
+@import url("dashboard/cards.css");
+@import url("dashboard/loans.css");
+@import url("dashboard/themes.css");
+@import url("dashboard/responsive.css");

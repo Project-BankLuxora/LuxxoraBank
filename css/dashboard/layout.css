@@ -1,0 +1,4 @@
+/* page frame of the dashboard */
+.dash { padding: 24px var(--page-padding-x) 70px; }
+.dash [hidden] { display: none !important; }
+.dash h1 { margin-bottom: 20px; font-size: clamp(32px, 4vw, 48px); }

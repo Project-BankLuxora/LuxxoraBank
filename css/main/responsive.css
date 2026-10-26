@@ -1,0 +1,85 @@
+/* ---------- Responsive ---------- */
+
+/*TABLET AND SMALLER (960px wide or less)*/
+@media (max-width: 960px) {
+  /*hide the nav links (a hamburger menu would go here instead)*/
+  .main-nav {
+    display: none;
+  }
+
+  /*every multi-column section becomes one column, stacked*/
+  .hero,
+  .mobile-app-section,
+  .security-section,
+  .future-section {
+    grid-template-columns: 1fr;
+  }
+
+  /*product cards go 2 per row*/
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*shorter hero picture*/
+  .hero-visual {
+    height: 340px;
+  }
+
+  /*removes the vertical line and its spacing since it's stacked now*/
+  .mobile-app-features {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  /*shorter security picture*/
+  .security-photo {
+    height: 160px;
+  }
+}
+
+/*PHONES (560px wide or less)*/
+@media (max-width: 560px) {
+  /*product cards go 1 per row*/
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /*hides the outlined Log in button to save space*/
+  .site-header-actions .button-outline {
+    display: none;
+  }
+
+  /*smaller bank card*/
+  .hero-card {
+    font-size: 13px;
+  }
+
+  /*narrower arch*/
+  .hero-arch {
+    width: 220px;
+  }
+
+  /*stats stack on top of each other*/
+  .security-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /*no divider lines between stacked stats*/
+  .security-stats li {
+    border-left: 0;
+  }
+
+  /*centres the footer content*/
+  .site-footer {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/*for people who set their device to reduce motion: turn smooth scrolling off*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

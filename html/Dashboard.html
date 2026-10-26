@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Моята банка – Luxora Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/MainPage.css">
+  <link rel="stylesheet" href="../css/Dashboard.css">
+
+  <!-- i18n: translations first, then the engine (must load BEFORE auth) -->
+  <script src="../js/i18n/translations/landing.js"></script>
+  <script src="../js/i18n/translations/login.js"></script>
+  <script src="../js/i18n/translations/dashboard.js"></script>
+  <script src="../js/i18n/translations/loans.js"></script>
+  <script src="../js/i18n/translations/loan-agreement.js"></script>
+  <script src="../js/i18n/translations/card-agreement.js"></script>
+  <script src="../js/i18n/core.js"></script>
+  <script src="../js/i18n/switcher.js"></script>
+
+  <!-- auth: keep this order, each file builds on the ones above it -->
+  <script src="../js/cards/card-art.js"></script>
+  <script src="../js/auth/storage.js"></script>
+  <script src="../js/auth/password-hash.js"></script>
+  <script src="../js/auth/session.js"></script>
+  <script src="../js/auth/accounts.js"></script>
+  <script src="../js/auth/twofa.js"></script>
+  <script src="../js/auth/password-reset.js"></script>
+  <script src="../js/auth/modal-styles.js"></script>
+  <script src="../js/auth/modal-markup.js"></script>
+  <script src="../js/auth/modal-ui.js"></script>
+  <script src="../js/auth/modal-submit.js"></script>
+  <script src="../js/auth/header.js"></script>
+  <script src="../js/auth/index.js"></script>
+</head>
+<body data-requires-auth data-home="MainPage.html">
+  <header class="site-header">
+    <a class="logo" href="#accounts"><span class="logo-mark">LX</span><span class="logo-text">LUXORA<small>BANK</small></span></a>
+    <div class="site-header-actions">
+      <a class="button button-outline button-small" href="#">Изход</a>
+      <a class="button button-gold button-small" href="#">Профил</a>
+    </div>
+  </header>
+
+  <main class="dash">
+    <nav class="tabs dash-nav" aria-label="Табло">
+      <a href="#accounts">Сметки</a>
+      <a href="#transfers">Преводи</a>
+      <a href="#loans">Кредити</a>
+      <a href="#cards">Карти</a>
+      <a href="#profile">Профил</a>
+    </nav>
+
+    <!-- SMETKI -->
+    <div data-view="accounts">
+      <h1>Здравейте, <span data-user-name></span>.</h1>
+      <section class="balance-panel">
+        <small>Общо по сметките</small>
+        <strong class="balance-amount" data-money="3680.32">…</strong>
+        <span class="balance-iban">BG80 LUXO 1234 5678 9012 34</span>
+      </section>
+      <div data-tabs>
+        <div class="tabs" role="tablist">
+          <button role="tab">Моите сметки</button><button role="tab">Детайли</button><button role="tab">Транзакции</button>
+          <button role="tab">Извлечения</button><button role="tab">Планирани плащания</button><button role="tab">Спестявания</button>
+        </div>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>Разплащателна сметка<small>BG80 LUXO 1234 5678 9012 34</small></span><b data-money="2480.32">…</b></li>
+            <li><span>Спестовна сметка<small>BG21 LUXO 8765 4321 0987 65</small></span><b data-money="1200">…</b></li>
+          </ul>
+        </section>
+        <section class="panel" role="tabpanel">
+          <dl class="kv">
+            <div><dt>IBAN</dt><dd>BG80 LUXO 1234 5678 9012 34</dd></div>
+            <div><dt>BIC</dt><dd>LUXOBGSF</dd></div>
+            <div><dt>Тип</dt><dd>Разплащателна сметка</dd></div>
+            <div><dt>Открита на</dt><dd>12 март 2025</dd></div>
+          </dl>
+        </section>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>Супермаркет<small>Днес</small></span><b data-money="-56.40" data-signed>…</b></li>
+            <li><span>Захранване<small>Вчера</small></span><b data-money="-32" data-signed>…</b></li>
+            <li><span>Заплата<small>1 октомври</small></span><b class="amount-positive" data-money="1250" data-signed>…</b></li>
+            <li><span>Наем<small>30 септември</small></span><b data-money="-620" data-signed>…</b></li>
+          </ul>
+        </section>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>Септември 2026<small>PDF</small></span><a class="button button-outline button-small" href="#">Свали</a></li>
+            <li><span>Август 2026<small>PDF</small></span><a class="button button-outline button-small" href="#">Свали</a></li>
+            <li><span>Юли 2026<small>PDF</small></span><a class="button button-outline button-small" href="#">Свали</a></li>
+          </ul>
+        </section>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>Наем<small>Всяко 1-во число</small></span><b data-money="-620" data-signed>…</b></li>
+            <li><span>Интернет<small>Всяко 15-о число</small></span><b data-money="-24.90" data-signed>…</b></li>
+          </ul>
+        </section>
+        <section class="panel" role="tabpanel">
+          <p class="note">Цел: почивка</p>
+          <p class="goal-text"><span data-money="1200">…</span> от <span data-money="3000">…</span></p>
+          <div class="progress"><span></span></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- PREVODI -->
+    <div data-view="transfers" hidden>
+      <h1>Преводи</h1>
+      <div data-tabs>
+        <div class="tabs" role="tablist"><button role="tab">Изпрати пари</button><button role="tab">Разписки</button><button role="tab">Получени</button></div>
+        <section class="panel" role="tabpanel">
+          <form data-demo="Демо: преводът не е изпратен, защото няма бекенд.">
+            <label class="field"><span>IBAN на получателя</span><input type="text" placeholder="BG00 XXXX 0000 0000 0000 00"></label>
+            <label class="field"><span>Сума</span><input type="number" min="0.01" step="0.01"></label>
+            <label class="field"><span>Основание</span><input type="text"></label>
+            <button class="button button-gold" type="submit">Изпрати превода</button>
+            <p class="form-msg" role="status"></p>
+          </form>
+        </section>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>Превод към Иван Петров<small>14 октомври</small></span><b data-money="-150" data-signed>…</b></li>
+            <li><span>Превод към Мария Георгиева<small>2 октомври</small></span><b data-money="-80" data-signed>…</b></li>
+          </ul>
+        </section>
+        <section class="panel" role="tabpanel">
+          <ul class="tx-list">
+            <li><span>От Георги Димитров<small>10 октомври</small></span><b class="amount-positive" data-money="200" data-signed>…</b></li>
+            <li><span>От Работодател ООД<small>1 октомври</small></span><b class="amount-positive" data-money="1250" data-signed>…</b></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- KREDITI -->
+    <div data-view="loans" hidden>
+      <h1>Кредити</h1>
+      <div data-tabs>
+        <div class="tabs" role="tablist"><button role="tab">Заявка</button><button role="tab">Договор и погасяване</button></div>
+
+        <section class="panel" role="tabpanel">
+          <h2>Заявка за кредит</h2>
+          <form id="loan-form" class="loan-layout" novalidate>
+            <div>
+              <label class="field"><span>Продукт</span><select name="product"><option value="micro">Микрокредит</option><option value="medium" selected>Среден кредит</option><option value="high">Високостойностен кредит</option></select></label>
+              <label class="field"><span>Главница: <b id="loan-amount-out"></b></span><input name="amount" type="range"></label>
+              <label class="field"><span>Срок: <b id="loan-months-out"></b> месеца</span><input name="months" type="range"></label>
+              <label class="field"><span>Месечен доход (EUR)</span><input name="income" type="number" min="0" step="50" value="2500"></label>
+              <label class="field"><span>Текущи месечни задължения (EUR)</span><input name="debts" type="number" min="0" step="50" value="300"></label>
+              <label class="field"><span>Обезпечение</span><select name="collateral"><option value="no">Без обезпечение</option><option value="yes">С обезпечение</option></select></label>
+              <div id="loan-collateral-fields" hidden>
+                <label class="field"><span>Вид на обезпечението</span><select name="ctype"><option value="real">Недвижим имот</option><option value="vehicle">Превозно средство</option><option value="deposit">Депозит</option></select></label>
+                <label class="field"><span>Оценка на обезпечението (EUR)</span><input name="cval" type="number" min="0" step="500"></label>
+              </div>
+              <p class="goal-text" id="loan-collateral-note" hidden>Микрокредитите са необезпечени.</p>
+            </div>
+            <aside class="loan-summary">
+              <p class="note"><span class="loan-status is-draft">Чернова</span></p>
+              <dl class="kv">
+                <div><dt>Годишен лихвен процент</dt><dd id="loan-rate"></dd></div>
+                <div><dt>Рисков клас (симулиран)</dt><dd id="loan-risk"></dd></div>
+                <div><dt>Месечна вноска</dt><dd id="loan-payment"></dd></div>
+                <div><dt>Обща сума за връщане</dt><dd id="loan-total"></dd></div>
+                <div><dt>Такси</dt><dd id="loan-fees"></dd></div>
+              </dl>
+              <p class="form-msg loan-error" id="loan-msg" role="status"></p>
+              <button class="button button-gold" type="submit">Прегледай договора</button>
+            </aside>
+          </form>
+        </section>
+
+        <section class="panel" role="tabpanel">
+          <div id="loan-doc"></div>
+          <p class="form-msg" id="loan-doc-msg" role="status"></p>
+        </section>
+      </div>
+    </div>
+
+    <!-- KARTI -->
+    <div data-view="cards" hidden>
+      <h1>Карти</h1>
+      <div data-tabs>
+        <div class="tabs" role="tablist"><button role="tab">Моите карти</button><button role="tab">Детайли и лимити</button><button role="tab">Плащания</button><button role="tab">Нова карта</button><button role="tab">Договор</button></div>
+        <section class="panel" role="tabpanel">
+          <div id="card-list" class="card-grid"></div>
+          <p class="form-msg" id="card-msg" role="status"></p>
+        </section>
+        <section class="panel" role="tabpanel">
+          <label class="field"><span>Карта</span><select id="card-select" data-card-select></select></label>
+          <dl class="kv" id="card-details"></dl>
+          <label class="field"><span>Дневен лимит: <b id="card-limit-out"></b></span><input id="card-limit" type="range" min="100" max="5000" step="100" value="2000"></label>
+        </section>
+        <section class="panel" role="tabpanel">
+          <label class="field"><span>Карта</span><select data-card-select></select></label>
+          <div id="card-tx"></div>
+          <p class="form-msg" id="card-pay-msg" role="status"></p>
+        </section>
+        <section class="panel" role="tabpanel">
+          <form id="card-form" class="loan-layout" novalidate>
+            <div>
+              <label class="field"><span>Продукт</span><select name="product"><option value="standard">Стандартна дебитна</option><option value="premium">Премиум дебитна</option><option value="virtual">Виртуална</option><option value="prepaid">Предплатена</option><option value="credit">Кредитна</option></select></label>
+              <label class="field"><span>Име на картата (по желание)</span><input name="cname" type="text" maxlength="24" placeholder="Напр. За пътувания"></label>
+              <label class="field"><span>Дизайн</span><select name="design"><option value="champagne">Шампанско</option><option value="silver">Сребро</option><option value="black">Черен мрамор</option></select></label>
+            </div>
+            <aside class="loan-summary">
+              <p class="note"><span class="loan-status is-draft">Чернова</span></p>
+              <dl class="kv" id="card-terms"></dl>
+              <button class="button button-gold" type="submit">Прегледай договора</button>
+              <p class="form-msg" role="status"></p>
+            </aside>
+          </form>
+        </section>
+        <section class="panel" role="tabpanel">
+          <label class="field"><span>Карта</span><select data-card-select></select></label>
+          <div id="card-doc"></div>
+          <p class="form-msg" id="card-doc-msg" role="status"></p>
+        </section>
+      </div>
+    </div>
+
+    <!-- PROFIL -->
+    <div data-view="profile" hidden>
+      <h1>Профил</h1>
+      <div data-tabs>
+        <div class="tabs" role="tablist"><button role="tab">Настройки</button><button role="tab">Изход</button></div>
+        <section class="panel" role="tabpanel">
+          <label class="row"><span>Език</span>
+            <select data-pref="lang"><option value="bg">Български</option><option value="en">English</option></select></label>
+          <div class="row-group"><p class="note">Известия</p>
+            <label class="row"><span>Преводи</span><input type="checkbox" data-pref="n_transfers"></label>
+            <label class="row"><span>Плащания с карта</span><input type="checkbox" data-pref="n_cards"></label>
+            <label class="row"><span>Сигурност</span><input type="checkbox" data-pref="n_security"></label></div>
+          <label class="row"><span>Двуфакторна защита (2FA)<small>При следващ вход ще поискаме код.</small></span><input type="checkbox" data-pref="twofa"></label>
+          <label class="row"><span>Изглед</span>
+            <select data-pref="theme"><option value="light">Светъл</option><option value="dark">Тъмен</option></select></label>
+          <label class="row"><span>Валута<small>Демо курсове.</small></span>
+            <select data-pref="currency"><option value="EUR">евро</option><option value="USD">долар</option></select></label>
+          <div class="row-group"><p class="note">Достъпност</p>
+            <label class="row"><span>По-едър текст</span><input type="checkbox" data-pref="large"></label>
+            <label class="row"><span>По-плътен текст</span><input type="checkbox" data-pref="bold"></label>
+            <label class="row"><span>Висок контраст</span><input type="checkbox" data-pref="contrast"></label></div>
+        </section>
+        <section class="panel" role="tabpanel">
+          <p class="goal-text">Ще излезете от профила си на това устройство.</p>
+          <button class="button button-gold" type="button" data-logout>Изход</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- dashboard scripts: these need the page above to exist, so they load last, in this order -->
+  <script src="../js/dashboard/prefs.js"></script>
+  <script src="../js/dashboard/money.js"></script>
+  <script src="../js/dashboard/loan-calculator.js"></script>
+  <script src="../js/dashboard/loan-agreement.js"></script>
+  <script src="../js/dashboard/apply.js"></script>
+  <script src="../js/dashboard/settings.js"></script>
+  <script src="../js/dashboard/navigation.js"></script>
+  <script src="../js/dashboard/forms.js"></script>
+  <script src="../js/dashboard/card-products.js"></script>
+  <script src="../js/dashboard/cards.js"></script>
+  <script src="../js/dashboard/card-agreement.js"></script>
+  <script src="../js/dashboard/init.js"></script>
+</body>
+</html>

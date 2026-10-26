@@ -1,0 +1,46 @@
+/*base style for every button, pill shape with centred text*/
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px; /*top/bottom then left/right*/
+  border-radius: 999px; /*huge number = fully round ends*/
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s; /*smooth colour fade on hover*/
+}
+
+/*add this next to .button for the smaller header buttons*/
+.button-small {
+  padding: 9px 22px;
+  font-size: 13px;
+}
+
+/*the main button: gold gradient with white text*/
+.button-gold {
+  background: var(--gradient-gold);
+  color: #fff;
+}
+
+/*goes a bit darker on hover*/
+.button-gold:hover {
+  background: var(--color-gold-dark);
+}
+
+/*the secondary button: light background with a thin border*/
+.button-outline {
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/*turns solid white on hover*/
+.button-outline:hover {
+  background: #fff;
+}
+
+/*puts buttons next to each other and wraps them if there's no room*/
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}

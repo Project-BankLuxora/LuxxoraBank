@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luxora Bank – Съвременна банка. Реални решения.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/MainPage.css">
+
+  <!-- auth: keep this order, each file builds on the ones above it -->
+  <script src="../js/cards/card-art.js"></script>
+  <script src="../js/auth/storage.js"></script>
+  <script src="../js/auth/password-hash.js"></script>
+  <script src="../js/auth/session.js"></script>
+  <script src="../js/auth/accounts.js"></script>
+  <script src="../js/auth/twofa.js"></script>
+  <script src="../js/auth/password-reset.js"></script>
+  <script src="../js/auth/modal-styles.js"></script>
+  <script src="../js/auth/modal-markup.js"></script>
+  <script src="../js/auth/modal-ui.js"></script>
+  <script src="../js/auth/modal-submit.js"></script>
+  <script src="../js/auth/header.js"></script>
+  <script src="../js/auth/index.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#"><span class="logo-mark">LX</span><span class="logo-text">LUXORA<small>BANK</small></span></a>
+    <nav class="main-nav">
+      <a href="#">Лични</a>
+      <a href="#">Бизнес</a>
+      <a href="#">За нас</a>
+      <a href="#">Помощ</a>
+    </nav>
+    <div class="site-header-actions">
+      <a class="button button-outline button-small" href="#">Вход</a>
+      <a class="button button-gold button-small" href="#">Стани клиент</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="section-label">Съвременна банка. Реални решения.</p>
+      <h1>Повече <em>свобода</em> за вашите финанси.</h1>
+      <p class="hero-lead">Luxora Bank е тук, за да ви даде сигурност, гъвкавост и лесен достъп до всичко, което е важно за вас.</p>
+      <div class="button-row">
+        <a class="button button-gold" href="#">Отвори сметка</a>
+        <a class="button button-outline" href="#">Научи повече</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-arch"></div>
+      <div class="hero-card" id="hero-card"></div>
+      <div class="hero-rock"></div>
+      <p class="hero-quote">Вашите цели. Нашата подкрепа.</p>
+    </div>
+  </section>
+
+  <section class="product-grid">
+    <article class="product-card">
+      <div class="icon-circle"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+      <h3>Разплащателна сметка</h3>
+      <p>Управлявайте ежедневните си финанси лесно и удобно.</p>
+      <a href="#" class="link-arrow" aria-label="Научи повече">→</a>
+    </article>
+    <article class="product-card">
+      <div class="icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 6V4M9 3h6"/></svg></div>
+      <h3>Спестявания</h3>
+      <p>Вашите цели. Вашият план.</p>
+      <a href="#" class="link-arrow" aria-label="Научи повече">→</a>
+    </article>
+    <article class="product-card">
+      <div class="icon-circle"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div>
+      <h3>Карти</h3>
+      <p>Плащайте сигурно навсякъде.</p>
+      <a href="#" class="link-arrow" aria-label="Научи повече">→</a>
+    </article>
+    <article class="product-card">
+      <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></div>
+      <h3>Кредити</h3>
+      <p>Решения, съобразени с вас.</p>
+      <a href="#" class="link-arrow" aria-label="Научи повече">→</a>
+    </article>
+  </section>
+
+  <section class="mobile-app-section">
+    <div class="phone-wrapper">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <small>Достъпен баланс</small>
+          <strong>2 480,32 €</strong>
+          <ul>
+            <li><span>Супермаркет</span><b>−56,40 €</b></li>
+            <li><span>Захранване</span><b>−32,00 €</b></li>
+            <li><span>Заплата</span><b class="amount-positive">+1 250,00 €</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-app-text">
+      <h2>Вашата банка.<br>В джоба ви.</h2>
+      <p>Проверявайте баланса си, управлявайте карти и следете разходите си — когато пожелаете.</p>
+      <div class="button-row">
+        <a class="store-badge" href="#">App Store</a>
+        <a class="store-badge" href="#">Google Play</a>
+      </div>
+    </div>
+    <ul class="mobile-app-features">
+      <li><span class="feature-icon"></span>Бърз достъп<br>до сметките ви</li>
+      <li><span class="feature-icon"></span>Сигурност<br>с 2FA</li>
+      <li><span class="feature-icon"></span>Пълен контрол<br>в реално време</li>
+    </ul>
+  </section>
+
+  <section class="security-section">
+    <div class="photo-placeholder security-photo"></div>
+    <div class="security-text">
+      <p class="section-label">Сигурност</p>
+      <h2>Вашето спокойствие е наш приоритет.</h2>
+      <p>Използваме модерни технологии и постоянен мониторинг, за да защитим вашите средства и лични данни.</p>
+    </div>
+    <ul class="security-stats">
+      <li><strong>24/7</strong><span>Мониторинг</span></li>
+      <li><strong>2FA</strong><span>Допълнителна защита</span></li>
+      <li><strong>100%</strong><span>Контрол от вас</span></li>
+    </ul>
+  </section>
+
+  <section class="future-section">
+    <div class="future-text">
+      <p class="section-label">За вашето бъдеще</p>
+      <h2>Повече възможности. Повече увереност.</h2>
+      <p>С Luxora Bank не просто управлявате парите си — вие градите бъдещето, което искате.</p>
+      <a class="button button-gold" href="#">Разгледай решенията</a>
+    </div>
+    <div class="photo-placeholder future-photo"></div>
+    <aside class="future-links">
+      <ul>
+        <li><a href="#">Инвестиции</a></li>
+        <li><a href="#">Ипотеки</a></li>
+        <li><a href="#">Потребителски кредити</a></li>
+        <li><a href="#">Застраховки</a></li>
+      </ul>
+      <p class="signature-tagline">Заедно към светло бъдеще</p>
+    </aside>
+  </section>
+
+  <footer class="site-footer">
+    <a class="logo" href="#"><span class="logo-mark">LX</span><span class="logo-text">LUXORA<small>BANK</small></span></a>
+    <nav class="main-nav">
+      <a href="#">Лични</a>
+      <a href="#">Бизнес</a>
+      <a href="#">За нас</a>
+      <a href="#">Помощ</a>
+    </nav>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </div>
+    <p class="copyright">© 2025 Luxora Bank. Всички права запазени.</p>
+  </footer>
+
+  <script>document.getElementById("hero-card").innerHTML = LuxoraCardArt.render("champagne", "4821");</script>
+</body>
+</html>
