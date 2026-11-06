@@ -1,0 +1,65 @@
+/*makes padding and borders count inside an element's width so boxes don't get bigger than expected*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*just the scroll twin, makes anchor links glide instead of jump*/
+html {
+  scroll-behavior: smooth;
+}
+/*just the pagewide default like the bg, dark text, the font ect.*/
+body {
+  margin: 0; /*removes the default white gap around the page*/
+  background: var(--color-page-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6; /*space between lines of text*/
+}
+/*links: same colour as the text around them and no underline*/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/*details people, details. gold outline for keyboard users tabbing through links*/
+a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px; /*gap between the link and the outline*/
+}
+/*removes the bullet points and default indent from lists*/
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*the headings, all use the serif font*/
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.12; /*tight so big headings don't look gappy*/
+  margin: 0;
+}
+
+/*removes the default space above and below paragraphs, we add our own where needed*/
+p {
+  margin: 0;
+}
+
+/*the tiny uppercase text above a heading*/
+.section-label {
+  margin-bottom: 18px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  letter-spacing: 0.16em; /*spreads the letters out*/
+  text-transform: uppercase;
+}
+
+/*base for any photo spot, so a real image later fills the box and stays centred*/
+.photo-placeholder {
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover; /*image fills the box without stretching*/
+}

@@ -1,0 +1,23 @@
+/*the one dark block on the page: the balance*/
+.balance-panel { margin-bottom: 28px; padding: 30px 32px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-card); background: var(--color-ink); color: #fff; }
+.balance-panel small { display: block; color: rgba(255, 255, 255, 0.7); font-size: 13px; }
+.balance-amount { display: block; margin: 6px 0 12px; font-family: var(--font-serif); font-size: clamp(42px, 6vw, 64px); font-weight: 500; line-height: 1.05; }
+.balance-iban { color: var(--color-gold-light); font-size: 13px; letter-spacing: 0.06em; }
+
+.panel { padding: 24px 26px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-card-surface); }
+.panel h2 { margin-bottom: 16px; font-size: 24px; }
+.note { margin-bottom: 8px; color: var(--color-text-muted); font-size: 12px; font-weight: 600; }
+
+.tx-list li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-border); font-size: 14px; }
+.tx-list li:first-child { padding-top: 0; }
+.tx-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+.tx-list small { display: block; color: var(--color-text-muted); font-size: 12px; }
+.tx-list b { font-weight: 500; white-space: nowrap; }
+
+.kv div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--color-border); font-size: 14px; }
+.kv div:last-child { border-bottom: 0; }
+.kv dt { color: var(--color-text-muted); }
+.kv dd { margin: 0; text-align: right; }
+
+.progress { height: 6px; border-radius: 999px; background: var(--color-border); }
+.progress span { display: block; width: 40%; height: 100%; border-radius: inherit; background: var(--color-gold); }

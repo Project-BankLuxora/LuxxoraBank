@@ -1,0 +1,94 @@
+/*HERO: two columns (text left, visual right) on a cream to blue gradient*/
+.hero {
+  position: relative; /*lets the children be placed inside it*/
+  display: grid;
+  grid-template-columns: 1fr 1fr; /*two equal columns*/
+  align-items: center;
+  gap: 40px;
+  min-height: 520px;
+  padding: 60px var(--page-padding-x);
+  overflow: hidden; /*cuts off any shape that sticks out of the hero*/
+  background: var(--gradient-hero);
+}
+
+/*the left side text block, z-index keeps it above the decorations*/
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+/*big headline, size scales with the screen between 40px and 64px*/
+.hero h1 {
+  margin-bottom: 22px;
+  font-size: clamp(40px, 5.2vw, 64px);
+}
+
+/*the one highlighted word: blue and italic*/
+.hero h1 em {
+  color: var(--color-gold-dark);
+  font-style: italic;
+}
+
+/*the short paragraph under the headline, kept narrow so it's easy to read*/
+.hero-lead {
+  max-width: 380px;
+  margin-bottom: 30px;
+  color: var(--color-text-muted);
+}
+
+/*the right side box that holds the arch, rock, card and quote*/
+.hero-visual {
+  position: relative; /*children below are placed relative to this box*/
+  height: 420px;
+}
+
+/*the tall arch in the back: white to cream, round top, inner white border*/
+.hero-arch {
+  position: absolute;
+  top: -60px; /*starts above the box so it looks like it comes from the top*/
+  right: 8%;
+  width: 300px;
+  height: 420px;
+  border-radius: 150px 150px 0 0; /*half the width = perfect round top, flat bottom*/
+  background: linear-gradient(180deg, #fff, var(--color-sand-soft));
+  box-shadow: inset 0 0 0 28px rgba(255, 255, 255, 0.55); /*inset = shadow inside, makes the see-through inner border*/
+  opacity: 0.85;
+}
+
+/*the stone shape at the bottom right, pokes out of the corner a bit*/
+.hero-rock {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 360px;
+  height: 130px;
+  border-radius: 60% 40% 0 0; /*uneven corners make it look natural*/
+  background: linear-gradient(180deg, var(--color-sand-soft), var(--color-sand));
+}
+
+/*the bank card in front, tilted, and has the biggest shadow so it looks closest.
+  The card itself is built by js/cards/card-art.js (css/main/bankcard.css); here we only place and tilt it.
+  font-size sets the card size: 20em wide, so 17px = 340px.*/
+.hero-card {
+  position: absolute;
+  top: 30px;
+  left: 8%;
+  z-index: 2; /*in front of the arch and rock*/
+  font-size: 17px;
+  transform: rotate(-14deg) skewY(4deg); /*rotate tilts it, skewY leans it for the 3D feel*/
+}
+.hero-card .bank-card-flip { font-size: inherit; }
+
+/*the small floating quote with a thin gold line on its left*/
+.hero-quote {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  max-width: 100px;
+  padding-left: 12px;
+  border-left: 1px solid var(--color-gold);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}

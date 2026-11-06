@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Моята банка – Luxora Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/MainPage.css">
+  <link rel="stylesheet" href="../css/Dashboard.css">
+
+  <!-- i18n: translations first, then the engine (must load BEFORE auth) -->
+  <script src="../js/i18n/translations/landing.js"></script>
+  <script src="../js/i18n/translations/login.js"></script>
+  <script src="../js/i18n/translations/dashboard.js"></script>
+  <script src="../js/i18n/translations/loans.js"></script>
+  <script src="../js/i18n/translations/loan-agreement.js"></script>
+  <script src="../js/i18n/translations/card-agreement.js"></script>
+  <script src="../js/i18n/translations/account.js"></script>
+  <script src="../js/i18n/core.js"></script>
+  <script src="../js/i18n/switcher.js"></script>
+
+  <!-- auth: keep this order, each file builds on the ones above it -->
+  <script src="../js/cards/card-art.js"></script>
+  <script src="../js/auth/storage.js"></script>
+  <script src="../js/auth/api.js"></script>
+  <script src="../js/auth/session.js"></script>
+  <script src="../js/auth/accounts.js"></script>
+  <script src="../js/auth/twofa.js"></script>
+  <script src="../js/auth/password-reset.js"></script>
+  <script src="../js/auth/modal-styles.js"></script>
+  <script src="../js/auth/modal-markup.js"></script>
+  <script src="../js/auth/modal-ui.js"></script>
+  <script src="../js/auth/modal-submit.js"></script>
+  <script src="../js/auth/header.js"></script>
+  <script src="../js/auth/index.js"></script>
+  <link rel="stylesheet" href="../css/chatbot.css">
+</head>
+<body data-requires-auth data-home="MainPage.html">
+  <!-- @include partials/dashboard/header.html -->
+
+  <main class="dash">
+    <!-- @include partials/dashboard/nav.html -->
+
+    <!-- @include partials/dashboard/account.html -->
+
+    <!-- @include partials/dashboard/overlays.html -->
+
+    <!-- @include partials/dashboard/transfers.html -->
+
+    <!-- @include partials/dashboard/loans.html -->
+
+    <!-- @include partials/dashboard/cards.html -->
+
+    <!-- @include partials/dashboard/profile.html -->
+  </main>
+
+  <!-- @include partials/dashboard/scripts.html -->
+</body>
+</html>

@@ -1,0 +1,148 @@
+/*account ("Сметка") page: overview, account card, quick actions, transactions, details, management. Reuses .panel, .tabs, .kv, .tx-list, .loan-status, .row and the colour tokens.*/
+.acc-nav { position: sticky; top: var(--hdr, 72px); z-index: 5; margin-bottom: 26px; background: var(--color-page-bg); }
+.acc-nav button { scroll-margin: 0; }
+.acc-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); gap: 28px; align-items: center; margin-bottom: 28px; }
+.acc-hero .balance-panel { margin: 0; }
+.acc-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.acc-eye, .acc-copy { display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 50%; background: transparent; color: var(--color-gold-light); cursor: pointer; }
+.acc-eye:hover, .acc-copy:hover { background: rgba(255, 255, 255, 0.1); }
+.acc-eye:focus-visible, .acc-copy:focus-visible, .acc-act:focus-visible, .acc-seg button:focus-visible, .acc-tx-row:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.ic { width: 20px; height: 20px; flex: none; }
+.acc-seg { display: inline-flex; padding: 3px; border-radius: 999px; }
+.acc-seg button { padding: 5px 16px; border: 0; border-radius: 999px; background: none; color: inherit; font: 500 12px var(--font-sans); letter-spacing: 0.06em; cursor: pointer; }
+.acc-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; margin: 26px 0 0; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.acc-meta dt { color: rgba(255, 255, 255, 0.6); font-size: 12px; }
+.acc-meta dd { display: flex; align-items: center; gap: 10px; margin: 2px 0 0; font-size: 14px; letter-spacing: 0.04em; }
+.acc-meta .wide { grid-column: 1 / -1; }
+.acc-meta .loan-status { background: rgba(255, 255, 255, 0.12); color: #9fd8bf; }
+.acc-meta .loan-status.is-closed { color: #e0b4ae; }
+
+/*the account card: same champagne finish as the bank card*/
+.acc-card { position: relative; width: 100%; max-width: 420px; justify-self: center; aspect-ratio: 1.586; display: flex; flex-direction: column; justify-content: space-between; padding: 7% 7% 6%; overflow: hidden; border-radius: 18px; color: #2b2523; background: linear-gradient(115deg, #e6cdb7 0%, #f2e2d3 30%, #f7ede3 48%, #ebd5c1 70%, #dcbfa8 100%); box-shadow: 0 24px 40px rgba(60, 40, 25, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.35); }
+.acc-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.55) 50%, transparent 62%); pointer-events: none; }
+.acc-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.acc-card-brand { font-size: 20px; letter-spacing: 0.33em; line-height: 1; }
+.acc-card-brand small { display: block; margin-top: 8px; font-size: 8px; letter-spacing: 0.95em; }
+.acc-card-type { color: #7a5a48; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.acc-card-iban { color: #9a5f3d; font-size: clamp(14px, 2.2vw, 18px); letter-spacing: 0.1em; white-space: nowrap; }
+.acc-card-bot { position: relative; z-index: 1; display: flex; align-items: flex-end; gap: 28px; }
+.acc-card-bot small { display: block; color: #7a5a48; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+.acc-card-bot b { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; }
+.acc-card-mono { margin-left: auto; color: #9a5f3d; font: 500 34px/1 var(--font-serif); letter-spacing: -0.04em; }
+
+/*quick actions*/
+.acc-actions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-bottom: 28px; }
+.acc-act { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-card-surface); color: var(--color-text); font: 500 13px var(--font-sans); cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+.acc-act:hover { border-color: var(--color-gold); background: var(--color-icon-bg); }
+.acc-act .acc-ico { width: 44px; height: 44px; }
+
+/*icon circle (beige, like the landing page) and transaction rows*/
+.acc-ico { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--color-icon-bg); color: var(--color-gold-dark); }
+.acc-ico.in { color: var(--color-positive); }
+.acc-panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 14px; }
+.acc-panel-head h2 { margin: 0; }
+.acc-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.acc-seg { background: var(--color-icon-bg); color: var(--color-text-muted); }
+.acc-seg button[aria-pressed="true"] { background: var(--color-modal-bg); color: var(--color-text); box-shadow: 0 1px 3px rgba(var(--shadow-rgb), 0.18); }
+.acc-filters select { padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--field-bg, #fff); color: var(--color-text); font: 400 13px var(--font-sans); }
+.acc-txl li { padding: 0; }
+.acc-tx-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) 110px 130px 110px; align-items: center; gap: 16px; width: 100%; padding: 13px 8px; border: 0; border-radius: 10px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.acc-tx-row:hover { background: var(--color-icon-bg); }
+.acc-tx-row b { font-weight: 500; }
+.acc-tx-row .acc-amt { text-align: right; font-weight: 500; white-space: nowrap; }
+.acc-amt.in { color: var(--color-positive); }
+.acc-tx-row .loan-status { justify-self: start; white-space: nowrap; }
+.acc-section .kv { margin: 0; }
+.loan-status.is-failed { background: rgba(179, 66, 58, 0.12); color: var(--color-danger); }
+.acc-foot { display: flex; justify-content: center; margin-top: 16px; }
+.acc-empty { padding: 20px 0; color: var(--color-text-muted); text-align: center; }
+.acc-section { margin-bottom: 28px; scroll-margin-top: calc(var(--hdr, 72px) + 60px); }
+.acc-copy-row { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.acc-copy-row .acc-copy { width: 30px; height: 30px; border-color: var(--color-border); color: var(--color-gold-dark); }
+.acc-copy-row .acc-copy:hover { background: var(--color-icon-bg); }
+.acc-link { border: 0; background: none; color: var(--color-gold-dark); font: 500 13px var(--font-sans); cursor: pointer; }
+
+/*management: side menu (a .tabs row turned vertical) + panel*/
+.acc-manage { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 0 28px; align-items: start; }
+.acc-manage > .tabs { flex-direction: column; gap: 4px; margin: 0; padding-right: 20px; border-bottom: 0; border-right: 1px solid var(--color-border); overflow: visible; }
+.acc-manage > .tabs button { padding: 10px 12px; margin: 0; border: 0; border-left: 2px solid transparent; border-radius: 0 8px 8px 0; text-align: left; white-space: normal; }
+.acc-manage > .tabs button[aria-selected="true"] { border-left-color: var(--color-gold); background: var(--color-icon-bg); }
+.acc-manage > [role="tabpanel"] { grid-column: 2; grid-row: 1; margin: 0; padding: 0; border: 0; background: none; }
+.acc-manage h3 { margin-bottom: 12px; font-size: 22px; }
+.acc-meter { margin-bottom: 18px; }
+.acc-meter div:first-child { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; font-size: 14px; }
+.acc-meter .progress span { width: var(--v, 0%); }
+.acc-panel-actions { margin-top: 18px; }
+
+/*dialog + toast*/
+.acc-dialog { width: min(520px, calc(100vw - 32px)); padding: 28px 30px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-modal-bg); color: var(--color-text); box-shadow: 0 30px 60px rgba(var(--shadow-rgb), 0.3); }
+.acc-dialog::backdrop { background: rgba(28, 26, 24, 0.55); }
+.acc-dialog h2 { margin-bottom: 14px; font-size: 28px; }
+.acc-dialog .loan-buttons { margin-top: 20px; }
+.acc-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; max-width: calc(100vw - 32px); padding: 12px 22px; border-radius: 999px; background: var(--color-ink); color: #fff; font-size: 14px; opacity: 0; transform: translate(-50%, 12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
+.acc-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 900px) {
+  .acc-hero { grid-template-columns: 1fr; }
+  .acc-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .acc-manage { grid-template-columns: 1fr; }
+  .acc-manage > .tabs { flex-direction: row; margin-bottom: 20px; padding: 0; border-right: 0; border-bottom: 1px solid var(--color-border); overflow-x: auto; }
+  .acc-manage > .tabs button { border-left: 0; border-bottom: 2px solid transparent; border-radius: 0; white-space: nowrap; }
+  .acc-manage > .tabs button[aria-selected="true"] { border-bottom-color: var(--color-gold); background: none; }
+  .acc-manage > .tabs { grid-column: 1; grid-row: 1; }
+  .acc-manage > [role="tabpanel"] { grid-column: 1; grid-row: 2; }
+  .acc-tx-row { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 4px 12px; }
+  .acc-tx-row .acc-when { grid-column: 2; grid-row: 2; }
+  .acc-tx-row .loan-status { grid-column: 2; grid-row: 3; }
+  .acc-tx-row .acc-amt { grid-column: 3; grid-row: 1; }
+}
+@media (max-width: 560px) { .acc-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); } .acc-meta { grid-template-columns: 1fr; } .acc-dialog { padding: 22px 18px; } }
+
+/*currency picker in the nav, transfer form currency, drill-down link and back link*/
+.cur-pick { margin-left: auto; align-self: center; }
+.cur-pick select { padding: 5px 10px; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-card-surface); color: var(--color-text); font: 500 12px var(--font-sans); letter-spacing: 0.06em; }
+.field-row { display: grid; grid-template-columns: minmax(0, 1fr) 130px; gap: 14px; }
+.acc-rate { display: block; margin-top: 4px; color: rgba(255, 255, 255, 0.6); font-size: 12px; }
+.acc-rate:empty { display: none; }
+.acc-balance .balance-amount { margin-bottom: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/*account / card switcher, card artwork in the overview*/
+.acc-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.acc-switch button { padding: 8px 16px; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-card-surface); color: var(--color-text); font: 500 13px var(--font-sans); cursor: pointer; }
+.acc-switch button small { color: var(--color-text-muted); }
+.acc-switch button:hover { border-color: var(--color-gold); }
+.acc-switch button[aria-pressed="true"] { border-color: transparent; background: var(--color-ink); color: #fff; }
+.acc-switch button[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.7); }
+.acc-switch button:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.acc-art { justify-self: center; width: 100%; max-width: 380px; font-size: 17px; }
+.acc-art:empty { display: none; }
+.acc-art .bank-card-flip { width: 100%; }
+.is-card .acc-card { display: none; }
+[data-view="account"] [hidden] { display: none !important; }
+.acc-meter small { color: var(--color-text-muted); }
+
+/*notification bell (the panel is position: fixed so the scrolling nav can't cut it off)*/
+.bell-wrap { margin-left: auto; align-self: center; }
+.bell-wrap + .cur-pick { margin-left: 0; }
+.dash-nav .bell { position: relative; display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; margin: 0; border: 1px solid var(--color-border); border-radius: 50%; background: var(--color-card-surface); color: var(--color-text); }
+.dash-nav .bell:hover { border-color: var(--color-gold); color: var(--color-text); }
+.bell-badge { position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--color-gold-dark, #8a6a3d); color: #fff; font: 600 11px/18px var(--font-sans); text-align: center; }
+.bell-panel { position: fixed; z-index: 30; width: min(380px, calc(100vw - 16px)); max-height: min(520px, calc(100vh - 140px)); display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-modal-bg); box-shadow: 0 24px 50px rgba(var(--shadow-rgb), 0.25); }
+.bell-panel[hidden] { display: none; }
+.bell-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--color-border); }
+.bell-head b { font: 500 18px var(--font-serif); }
+.bell-head span { display: flex; gap: 14px; }
+.bell-panel ul { margin: 0; padding: 6px; overflow-y: auto; list-style: none; }
+.bell-panel .bell-item { white-space: normal; display: flex; gap: 12px; align-items: flex-start; width: 100%; padding: 10px; border: 0; border-radius: 10px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.bell-panel .bell-item:hover { background: var(--color-icon-bg); }
+.bell-panel .bell-item:focus-visible { outline: 2px solid var(--color-gold); outline-offset: -2px; }
+.bell-panel .bell-item .acc-ico { width: 34px; height: 34px; }
+.bell-panel .bell-item .ic { width: 17px; height: 17px; }
+.bell-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+.bell-body small { color: var(--color-text-muted); font-size: 12px; }
+.bell-panel .bell-item.is-new .bell-text { font-weight: 600; }
+.bell-panel .bell-item.is-new::after { content: ""; flex: none; width: 8px; height: 8px; margin: 6px 2px 0 auto; border-radius: 50%; background: var(--color-gold); }
+.bell-empty { padding: 28px 12px; color: var(--color-text-muted); text-align: center; }
+.bell-panel .acc-link { margin: 0; padding: 0; border: 0; color: var(--color-gold-dark); font-size: 13px; white-space: normal; }
+.bell-panel .acc-link:hover { color: var(--color-text); text-decoration: underline; }

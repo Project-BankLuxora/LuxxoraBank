@@ -1,0 +1,9 @@
+/*cards: the card artwork itself lives in css/main/bankcard.css*/
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.card-item .bank-card-flip { width: 100%; max-width: 340px; font-size: 17px; margin-bottom: 14px; }
+.card-title { font-weight: 500; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+/*payments tab: amount + action side by side; the agreement tab reuses the loan document styles (loans.css)*/
+.tx-end { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 8px 12px; }
+.tx-list li small + small { margin-top: 4px; }

@@ -1,0 +1,11 @@
+/*themes and accessibility, set from Profile > Settings*/
+html[data-theme="dark"] {
+  --color-page-bg: #14110e; --color-text: #f0ebe3; --color-text-muted: #b0a79b;
+  --color-card-surface: rgba(255, 255, 255, 0.04); --color-border: #322c25; --color-gold-dark: #d9bc92; --field-bg: #1d1914;
+  --color-ink: #231e18; --color-ink-soft: #3a342c; --color-modal-bg: #1d1914; --color-icon-bg: #2a241d;
+}
+html[data-theme="dark"] .button-outline { background: rgba(255, 255, 255, 0.06); }
+html[data-theme="dark"] .button-outline:hover { background: rgba(255, 255, 255, 0.14); }
+html[data-contrast="true"] { --color-text-muted: var(--color-text); --color-border: #8a8f98; }
+html[data-large="true"] body { zoom: 1.18; }
+html[data-bold="true"] body, html[data-bold="true"] body * { font-weight: 600; }

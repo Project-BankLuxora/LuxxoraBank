@@ -1,0 +1,21 @@
+<section id="acc-overview" class="acc-hero acc-section" aria-label="Преглед на сметката">
+  <div class="balance-panel acc-balance">
+    <div class="acc-row"><small id="acc-lbl">Наличен баланс</small>
+      <button type="button" class="acc-eye" id="acc-eye" aria-pressed="false" aria-label="Скрий салдото"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+    <strong class="balance-amount" id="acc-balance">…</strong>
+    <small id="acc-rate" class="acc-rate"></small>
+    <dl class="acc-meta">
+      <div><dt id="k-type">Вид сметка</dt><dd id="acc-type">Разплащателна сметка</dd></div>
+      <div><dt>Статус</dt><dd><span class="loan-status is-active" id="acc-status">Активна</span></dd></div>
+      <div><dt id="k-num">Номер на сметка</dt><dd id="acc-number"></dd></div>
+      <div><dt id="k-open">Открита на</dt><dd id="acc-opened"></dd></div>
+      <div class="wide"><dt id="k-iban">IBAN</dt><dd><span id="acc-iban"></span><button type="button" class="acc-copy" data-copy="iban" aria-label="Копирай IBAN"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg></button></dd></div>
+    </dl>
+  </div>
+  <div class="acc-card" role="img" aria-label="Карта на сметката Luxora">
+    <div class="acc-card-top"><span class="acc-card-brand">LUXORA<small>BANK</small></span><span class="acc-card-type">Разплащателна сметка</span></div>
+    <div class="acc-card-iban" id="acc-card-iban"></div>
+    <div class="acc-card-bot"><div><small>Титуляр</small><b id="acc-holder"></b></div><div><small>Валута</small><b id="acc-card-cur">EUR</b></div><span class="acc-card-mono">LX</span></div>
+  </div>
+  <div class="acc-art" id="acc-art"></div>
+</section>

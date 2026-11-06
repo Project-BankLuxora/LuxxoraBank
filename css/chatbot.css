@@ -1,0 +1,22 @@
+/* Luxora Bank – chatbot.css: floating support assistant (uses the site colour tokens) */
+.lxc-btn { position: fixed; right: 24px; bottom: 24px; z-index: 40; display: grid; place-items: center; width: 56px; height: 56px; border: 0; border-radius: 50%; background: var(--gradient-gold, linear-gradient(135deg, #cfae82, #a98355)); color: #fff; box-shadow: 0 10px 24px rgba(60, 40, 25, 0.3); cursor: pointer; }
+.lxc-btn:focus-visible, .lxc-panel button:focus-visible, .lxc-panel input:focus-visible { outline: 2px solid var(--color-gold, #b08d5b); outline-offset: 2px; }
+.lxc-btn svg { width: 26px; height: 26px; }
+.lxc-panel { position: fixed; right: 24px; bottom: 92px; z-index: 40; display: flex; flex-direction: column; width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100vh - 120px)); overflow: hidden; border: 1px solid var(--color-border, #ebe4da); border-radius: 16px; background: var(--color-modal-bg, #fffdfa); color: var(--color-text, #1c1a18); box-shadow: 0 24px 60px rgba(28, 26, 24, 0.28); font-family: var(--font-sans, system-ui, sans-serif); }
+.lxc-panel[hidden] { display: none; }
+.lxc-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--color-ink, #1c1a18); color: #fff; }
+.lxc-head b { display: block; font: 500 20px/1.1 var(--font-serif, Georgia, serif); }
+.lxc-head small { color: rgba(255, 255, 255, 0.65); font-size: 12px; }
+.lxc-mono { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gradient-gold, #b08d5b); font: 500 16px var(--font-serif, Georgia, serif); }
+.lxc-x { margin-left: auto; width: 32px; height: 32px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 18px; cursor: pointer; }
+.lxc-log { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 16px; overflow-y: auto; }
+.lxc-msg { max-width: 86%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; white-space: pre-line; overflow-wrap: anywhere; }
+.lxc-bot { align-self: flex-start; border: 1px solid var(--color-border, #ebe4da); border-bottom-left-radius: 4px; background: var(--color-card-surface, #fff); }
+.lxc-me { align-self: flex-end; border-bottom-right-radius: 4px; background: var(--gradient-gold, #b08d5b); color: #fff; }
+.lxc-chips { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; }
+.lxc-chips button { padding: 7px 14px; border: 1px solid var(--color-gold, #b08d5b); border-radius: 999px; background: none; color: var(--color-gold-dark, #8a6a3d); font: 500 13px var(--font-sans, system-ui, sans-serif); cursor: pointer; }
+.lxc-chips button:hover { background: var(--color-icon-bg, #f3ebe1); }
+.lxc-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--color-border, #ebe4da); }
+.lxc-form input { flex: 1; min-width: 0; padding: 10px 14px; border: 1px solid var(--color-border, #ebe4da); border-radius: 999px; background: var(--field-bg, #fff); color: inherit; font: 400 14px var(--font-sans, system-ui, sans-serif); }
+.lxc-form button { padding: 0 18px; border: 0; border-radius: 999px; background: var(--gradient-gold, #b08d5b); color: #fff; font: 500 13px var(--font-sans, system-ui, sans-serif); cursor: pointer; }
+@media (max-width: 560px) { .lxc-btn { right: 16px; bottom: 16px; } .lxc-panel { right: 16px; bottom: 84px; } }

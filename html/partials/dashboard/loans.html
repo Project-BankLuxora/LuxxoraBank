@@ -1,0 +1,42 @@
+<div data-view="loans" hidden>
+  <h1>Кредити</h1>
+  <div data-tabs>
+    <div class="tabs" role="tablist"><button role="tab">Заявка</button><button role="tab">Договор и погасяване</button></div>
+
+    <section class="panel" role="tabpanel">
+      <h2>Заявка за кредит</h2>
+      <form id="loan-form" class="loan-layout" novalidate>
+        <div>
+          <label class="field"><span>Продукт</span><select name="product"><option value="micro">Микрокредит</option><option value="medium" selected>Среден кредит</option><option value="high">Високостойностен кредит</option></select></label>
+          <label class="field"><span>Главница: <b id="loan-amount-out"></b></span><input name="amount" type="range"></label>
+          <label class="field"><span>Срок: <b id="loan-months-out"></b> месеца</span><input name="months" type="range"></label>
+          <label class="field"><span>Месечен доход (EUR)</span><input name="income" type="number" min="0" step="50" value="2500"></label>
+          <label class="field"><span>Текущи месечни задължения (EUR)</span><input name="debts" type="number" min="0" step="50" value="300"></label>
+          <label class="field"><span>Обезпечение</span><select name="collateral"><option value="no">Без обезпечение</option><option value="yes">С обезпечение</option></select></label>
+          <div id="loan-collateral-fields" hidden>
+            <label class="field"><span>Вид на обезпечението</span><select name="ctype"><option value="real">Недвижим имот</option><option value="vehicle">Превозно средство</option><option value="deposit">Депозит</option></select></label>
+            <label class="field"><span>Оценка на обезпечението (EUR)</span><input name="cval" type="number" min="0" step="500"></label>
+          </div>
+          <p class="goal-text" id="loan-collateral-note" hidden>Микрокредитите са необезпечени.</p>
+        </div>
+        <aside class="loan-summary">
+          <p class="note"><span class="loan-status is-draft">Чернова</span></p>
+          <dl class="kv">
+            <div><dt>Годишен лихвен процент</dt><dd id="loan-rate"></dd></div>
+            <div><dt>Рисков клас (симулиран)</dt><dd id="loan-risk"></dd></div>
+            <div><dt>Месечна вноска</dt><dd id="loan-payment"></dd></div>
+            <div><dt>Обща сума за връщане</dt><dd id="loan-total"></dd></div>
+            <div><dt>Такси</dt><dd id="loan-fees"></dd></div>
+          </dl>
+          <p class="form-msg loan-error" id="loan-msg" role="status"></p>
+          <button class="button button-gold" type="submit">Прегледай договора</button>
+        </aside>
+      </form>
+    </section>
+
+    <section class="panel" role="tabpanel">
+      <div id="loan-doc"></div>
+      <p class="form-msg" id="loan-doc-msg" role="status"></p>
+    </section>
+  </div>
+</div>

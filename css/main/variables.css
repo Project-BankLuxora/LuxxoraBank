@@ -1,0 +1,49 @@
+/*main stuff like bg colour, text colour, ect. change these and the whole site changes.
+  Palette: warm ivory + champagne sand + caramel gold + charcoal (sampled from the design mock-up)*/
+:root {
+  /*surfaces*/
+  --color-page-bg: #fbfaf8; /*warm near-white page background*/
+  --color-page-bg-alt: #f7f2ec; /*soft cream used for tinted sections and gradients*/
+  --color-card-surface: rgba(255, 255, 255, 0.75); /*see-through white for cards*/
+  --color-icon-bg: #f3ede6; /*pale beige circles behind icons*/
+  --color-modal-bg: #fffdfa; /*login popup background*/
+
+  /*text*/
+  --color-text: #1d1b19; /*main text, warm charcoal*/
+  --color-text-muted: #5f5a54; /*warm grey for less important stuff*/
+
+  /*accents*/
+  --color-gold: #c4a47b; /*caramel gold accent, use it sparingly*/
+  --color-gold-dark: #8c6d45; /*darker gold, easier to read as text*/
+  --color-gold-light: #d3b88f; /*light gold, gradient start and accents on dark*/
+  --color-gold-deep: #a98456; /*deep gold, gradient end*/
+  --color-border: #ebe4da; /*thin lines around cards and sections*/
+
+  /*sand / stone tones (hero stone, photo placeholders, arch)*/
+  --color-sand-soft: #ede3d6;
+  --color-sand: #e3ceb8;
+  --color-sand-deep: #c9ae8c;
+
+  /*dark blocks: balance panel, store badges, phone frame*/
+  --color-ink: #1c1a18;
+  --color-ink-soft: #34302b; /*hover state of the dark blocks*/
+
+  /*status colours*/
+  --color-positive: #3b8a6b; /*money coming in*/
+  --color-danger: #b3423a; /*errors*/
+
+  /*shadows: an r, g, b triple so any opacity can be used: rgba(var(--shadow-rgb), 0.25)*/
+  --shadow-rgb: 92, 70, 44;
+
+  /*reusable gradients*/
+  --gradient-gold: linear-gradient(135deg, var(--color-gold-light), var(--color-gold-deep));
+  --gradient-pearl: linear-gradient(135deg, #ffffff, #ebe2d7); /*bank card face*/
+  --gradient-hero: linear-gradient(100deg, #fbf8f4 0%, #f6efe6 45%, #eadcc9 100%);
+  --gradient-mobile: linear-gradient(90deg, #f6efe6, #f8f5f0 60%, #fbf9f6);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif; /*fancy font for headings, georgia if it fails to load*/
+  --font-sans: "Manrope", system-ui, sans-serif; /*clean font for everything else*/
+
+  --radius-card: 14px; /*how round the card corners are*/
+  --page-padding-x: clamp(20px, 6vw, 80px); /*side spacing: min 20px, max 80px, grows with screen*/
+}

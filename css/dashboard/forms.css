@@ -1,0 +1,11 @@
+/*forms*/
+.field { display: block; max-width: 460px; margin-bottom: 16px; }
+.field span { display: block; margin-bottom: 6px; color: var(--color-text-muted); font-size: 12px; }
+.field input, .field select { width: 100%; padding: 12px 14px; border: 1px solid var(--color-border); border-radius: 10px; background: var(--field-bg, #fff); color: var(--color-text); font: 400 15px var(--font-sans); }
+.field select { appearance: auto; }
+.field input[type="range"] { padding: 0; border: 0; background: none; accent-color: var(--color-gold); }
+.field input:focus-visible, .row select:focus-visible, .row input:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.form-msg { min-height: 20px; margin-top: 14px; color: var(--color-gold-dark); font-size: 13px; }
+.goal-text { margin-bottom: 14px; color: var(--color-text-muted); font-size: 14px; }
+button.button { border: 0; cursor: pointer; font-family: var(--font-sans); }
+button.button-outline { border: 1px solid var(--color-border); color: var(--color-text); }

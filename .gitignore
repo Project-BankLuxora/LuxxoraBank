@@ -1,0 +1,6 @@
+server/data.json
+server/data.json.tmp
+server/luxora.db
+server/luxora.db-wal
+server/luxora.db-shm
+server/data.json.imported

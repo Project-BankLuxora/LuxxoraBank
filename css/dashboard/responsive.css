@@ -1,0 +1,4 @@
+@media (max-width: 560px) {
+  .balance-panel { padding: 24px 20px; }
+  .panel { padding: 20px 18px; }
+}

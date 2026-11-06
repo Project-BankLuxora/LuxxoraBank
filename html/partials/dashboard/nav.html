@@ -1,0 +1,15 @@
+<nav class="tabs dash-nav" aria-label="Табло">
+  <a href="#account">Сметка</a>
+  <a href="#transfers">Преводи</a>
+  <a href="#loans">Кредити</a>
+  <a href="#cards">Карти</a>
+  <a href="#profile">Профил</a>
+  <div class="bell-wrap">
+    <button type="button" class="bell" id="bell" aria-haspopup="true" aria-expanded="false" aria-label="Известия"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21h4"/></svg><span class="bell-badge" id="bell-badge" hidden>0</span></button>
+    <section class="bell-panel" id="bell-panel" aria-label="Известия" hidden>
+      <div class="bell-head"><b>Известия</b><span><button type="button" class="acc-link" data-n="read">Маркирай като прочетени</button><button type="button" class="acc-link" data-n="clear">Изчисти</button></span></div>
+      <ul id="bell-list"></ul>
+    </section>
+  </div>
+  <label class="cur-pick"><span class="sr-only">Валута</span><select data-pref="currency" aria-label="Валута на показване"><option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="RON">RON</option></select></label>
+</nav>

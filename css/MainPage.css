@@ -1,0 +1,13 @@
+/* Luxora Bank – landing page styles.
+   This file only lists the pieces; each one lives in css/main/. Order matters (later files can override earlier ones). */
+@import url("main/variables.css");
+@import url("main/base.css");
+@import url("main/buttons.css");
+@import url("main/header-footer.css");
+@import url("main/bankcard.css");
+@import url("main/hero.css");
+@import url("main/products.css");
+@import url("main/mobile-app.css");
+@import url("main/security.css");
+@import url("main/future.css");
+@import url("main/responsive.css");

@@ -1,0 +1,40 @@
+<div data-view="cards" hidden>
+  <h1>Карти</h1>
+  <div data-tabs>
+    <div class="tabs" role="tablist"><button role="tab">Моите карти</button><button role="tab">Детайли и лимити</button><button role="tab">Плащания</button><button role="tab">Нова карта</button><button role="tab">Договор</button></div>
+    <section class="panel" role="tabpanel">
+      <div id="card-list" class="card-grid"></div>
+      <p class="form-msg" id="card-msg" role="status"></p>
+    </section>
+    <section class="panel" role="tabpanel">
+      <label class="field"><span>Карта</span><select id="card-select" data-card-select></select></label>
+      <dl class="kv" id="card-details"></dl>
+      <label class="field"><span>Дневен лимит: <b id="card-limit-out"></b></span><input id="card-limit" type="range" min="100" max="5000" step="100" value="2000"></label>
+    </section>
+    <section class="panel" role="tabpanel">
+      <label class="field"><span>Карта</span><select data-card-select></select></label>
+      <div id="card-tx"></div>
+      <p class="form-msg" id="card-pay-msg" role="status"></p>
+    </section>
+    <section class="panel" role="tabpanel">
+      <form id="card-form" class="loan-layout" novalidate>
+        <div>
+          <label class="field"><span>Продукт</span><select name="product"><option value="standard">Стандартна дебитна</option><option value="premium">Премиум дебитна</option><option value="virtual">Виртуална</option><option value="prepaid">Предплатена</option><option value="credit">Кредитна</option></select></label>
+          <label class="field"><span>Име на картата (по желание)</span><input name="cname" type="text" maxlength="24" placeholder="Напр. За пътувания"></label>
+          <label class="field"><span>Дизайн</span><select name="design"><option value="champagne">Шампанско</option><option value="silver">Сребро</option><option value="black">Черен мрамор</option></select></label>
+        </div>
+        <aside class="loan-summary">
+          <p class="note"><span class="loan-status is-draft">Чернова</span></p>
+          <dl class="kv" id="card-terms"></dl>
+          <button class="button button-gold" type="submit">Прегледай договора</button>
+          <p class="form-msg" role="status"></p>
+        </aside>
+      </form>
+    </section>
+    <section class="panel" role="tabpanel">
+      <label class="field"><span>Карта</span><select data-card-select></select></label>
+      <div id="card-doc"></div>
+      <p class="form-msg" id="card-doc-msg" role="status"></p>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<section id="acc-manage" class="acc-section" aria-labelledby="acc-man-title">
+  <h2 id="acc-man-title" style="margin-bottom:16px">Управление на сметката</h2>
+  <div data-tabs class="panel acc-manage">
+    <div class="tabs" role="tablist"><button role="tab">Информация за сметката</button><button role="tab">Известия</button><button role="tab">Лимити</button><button role="tab">Сигурност</button><button role="tab">Документи и извлечения</button><button role="tab">Предпочитания</button></div>
+    <section role="tabpanel">
+      <h3>Информация за сметката</h3>
+      <label class="field"><span id="acc-nick-lbl">Име на сметката</span><input type="text" id="acc-nick" maxlength="30" placeholder="Напр. Основна сметка"></label>
+      <button type="button" class="button button-gold button-small" id="acc-nick-save">Запази</button>
+    </section>
+    <section role="tabpanel">
+      <h3>Известия</h3>
+      <label class="row"><span>Преводи</span><input type="checkbox" data-pref="n_transfers"></label>
+      <label class="row"><span>Плащания с карта</span><input type="checkbox" data-pref="n_cards"></label>
+      <label class="row"><span>Сигурност</span><input type="checkbox" data-pref="n_security"></label>
+      <label class="row"><span>Ниска наличност<small>Под 100 €</small></span><input type="checkbox" data-pref="a_low"></label>
+      <label class="row"><span>Ново месечно извлечение</span><input type="checkbox" data-pref="a_stmt"></label>
+    </section>
+    <section role="tabpanel">
+      <h3>Лимити</h3>
+      <label class="field acc-card-only" hidden><span><span>Дневен лимит за покупки</span>: <b id="cl-out"></b></span><input id="cl" type="range" step="100"></label>
+      <div id="acc-meters"></div>
+      <button type="button" class="button button-outline button-small acc-panel-actions acc-acct-only" data-act="limits">Поискай промяна на лимитите</button>
+    </section>
+    <section role="tabpanel">
+      <h3>Сигурност</h3>
+      <label class="row"><span>Двуфакторна защита (2FA)<small>При следващ вход ще поискаме код.</small></span><input type="checkbox" data-pref="twofa"></label>
+      <label class="row acc-acct-only"><span>Замрази сметката<small>Спира изходящите плащания, докато я активирате отново.</small></span><input type="checkbox" id="acc-freeze"></label>
+      <label class="row acc-card-only" hidden><span>Замрази картата<small>Спира плащанията с тази карта.</small></span><input type="checkbox" id="acc-cfreeze"></label>
+      <button type="button" class="button button-outline button-small acc-card-only" data-act="clost" hidden>Съобщи за загубена и замени</button>
+      <p class="note acc-acct-only" style="margin-top:18px">Последни входове</p>
+      <ul class="tx-list acc-acct-only"><li><span>Chrome · Windows · Варна<small>Днес</small></span></li><li><span>Luxora App · iPhone<small>Вчера</small></span></li></ul>
+    </section>
+    <section role="tabpanel">
+      <h3>Документи и извлечения</h3>
+      <ul class="tx-list acc-acct-only" id="acc-docs"></ul>
+      <ul class="tx-list acc-card-only" hidden><li><span>Договор на картодържателя</span><button type="button" class="button button-outline button-small" data-act="cagr">Отвори</button></li><li><span>Плащания по картата<small>CSV</small></span><button type="button" class="button button-outline button-small" data-act="ccsv">Свали</button></li></ul>
+    </section>
+    <section role="tabpanel">
+      <h3>Предпочитания</h3>
+      <label class="row"><span>Език</span><select data-pref="lang"><option value="bg">Български</option><option value="en">English</option></select></label>
+      <label class="row acc-card-only" hidden><span>Дизайн на картата</span><select id="acc-cdesign"><option value="champagne">Шампанско</option><option value="silver">Сребро</option><option value="black">Черен мрамор</option></select></label>
+      <label class="row"><span>Скривай салдото при вход</span><input type="checkbox" data-pref="a_hide"></label>
+    </section>
+  </div>
+</section>

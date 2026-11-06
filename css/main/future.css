@@ -1,0 +1,82 @@
+/*FUTURE SECTION: three columns (text, photo, links)*/
+.future-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.7fr;
+  align-items: stretch; /*columns grow to the same height*/
+  gap: 24px;
+  padding: 20px var(--page-padding-x) 50px;
+}
+
+/*less space under the label here too*/
+.future-section .section-label {
+  margin-bottom: 12px;
+}
+
+/*text column centred up and down even though the columns are stretched*/
+.future-text {
+  align-self: center;
+}
+
+/*heading*/
+.future-text h2 {
+  margin-bottom: 14px;
+  font-size: clamp(26px, 2.8vw, 34px);
+}
+
+/*paragraph (every p except the label)*/
+.future-text p:not(.section-label) {
+  margin-bottom: 22px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/*the photo spot: sky blue at the top fading to cream and sand like a terrace at dawn*/
+.future-photo {
+  min-height: 230px;
+  background-image: linear-gradient(
+    180deg,
+    #f1e6d8 0%,
+    #f7f1ea 45%,
+    #ead9c3 70%,
+    #c9ae8c 100%
+  );
+}
+
+/*the white card with quick links, spaces the links and the tagline apart*/
+.future-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-card-surface);
+}
+
+/*each link row with a thin line under it*/
+.future-links li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+/*link text on the left, arrow on the right*/
+.future-links li a {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*adds the little gold › at the end of every link from css, no html needed*/
+.future-links li a::after {
+  content: "›";
+  color: var(--color-gold-dark);
+}
+
+/*the fancy italic gold sentence*/
+.signature-tagline {
+  margin-top: 20px;
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-style: italic;
+}

@@ -1,0 +1,18 @@
+<div data-view="account" hidden>
+  <h1>Моята сметка</h1>
+  <p class="goal-text">Всичко за вашата разплащателна сметка на едно място.</p>
+  <div class="acc-switch" id="acc-switch" aria-label="Сметка и карти"></div>
+  <nav class="tabs acc-nav" aria-label="Раздели на сметката">
+    <button type="button" data-goto="acc-overview">Преглед</button><button type="button" data-goto="acc-tx">Транзакции</button><button type="button" data-goto="acc-details">Детайли</button><button type="button" data-goto="acc-manage">Управление</button>
+  </nav>
+
+  <!-- @include partials/dashboard/account/overview.html -->
+
+  <!-- @include partials/dashboard/account/actions.html -->
+
+  <!-- @include partials/dashboard/account/transactions.html -->
+
+  <!-- @include partials/dashboard/account/details.html -->
+
+  <!-- @include partials/dashboard/account/manage.html -->
+</div>

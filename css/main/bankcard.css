@@ -1,0 +1,89 @@
+/* Luxora bank card – front and back, three finishes: champagne (rose gold), silver, black (marble).
+   Used by the landing page hero and the dashboard "Cards" section. Markup comes from js/cards/card-art.js.
+   Size follows the font-size: set font-size on .bank-card and everything scales (1em = card width / 20). */
+.bank-card {
+  --ink: #2b2523; --ink-soft: #7a5a48; --accent: #9a5f3d;
+  --face: linear-gradient(115deg, #e6cdb7 0%, #f2e2d3 30%, #f7ede3 48%, #ebd5c1 70%, #dcbfa8 100%);
+  --shine: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.55) 50%, transparent 62%);
+  --chip: linear-gradient(135deg, #f1d58b, #c79a3e 55%, #e7c36d);
+  --chip-line: rgba(90, 60, 10, 0.55);
+  --panel: #f3e8de;
+  position: relative; display: block; width: 20em; aspect-ratio: 1.586; font-size: 16px;
+  border-radius: 1.1em; overflow: hidden; color: var(--ink); background: var(--face);
+  font-family: var(--font-sans, "Manrope", sans-serif); user-select: none;
+  box-shadow: 0 1.6em 2.4em rgba(60, 40, 25, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.bank-card::after { content: ""; position: absolute; inset: 0; background: var(--shine); pointer-events: none; }
+
+.bank-card.card-silver {
+  --ink: #15171a; --ink-soft: #8a9097; --accent: #8a9097;
+  --face: linear-gradient(115deg, #cfd3d6 0%, #eef0f1 28%, #ffffff 48%, #dfe2e4 70%, #c3c7ca 100%);
+  --chip: linear-gradient(135deg, #f4f5f6, #b9bec2 55%, #e6e8ea); --chip-line: rgba(30, 34, 38, 0.6); --panel: #eceeef;
+}
+.bank-card.card-black {
+  --ink: #c9c9cb; --ink-soft: #8d8d90; --accent: #a5a5a8;
+  --face: radial-gradient(120% 90% at 20% 0%, #1b1b1d, #0a0a0b 60%), #0a0a0b;
+  --shine: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.07) 50%, transparent 60%);
+  --chip: linear-gradient(135deg, #bdbdc0, #6e6e72 55%, #a9a9ad); --chip-line: rgba(0, 0, 0, 0.6); --panel: #1b1b1d;
+}
+/* marble veins on the black card */
+.bank-card.card-black::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(118deg, transparent 47.6%, rgba(255, 255, 255, 0.22) 48.1%, transparent 48.6%),
+    linear-gradient(122deg, transparent 58.4%, rgba(255, 255, 255, 0.14) 58.8%, transparent 59.3%),
+    linear-gradient(112deg, transparent 70.6%, rgba(255, 255, 255, 0.16) 71.1%, transparent 71.7%),
+    linear-gradient(126deg, transparent 33.7%, rgba(255, 255, 255, 0.1) 34.1%, transparent 34.6%);
+  mask-image: radial-gradient(90% 90% at 60% 50%, #000 40%, transparent);
+}
+
+/* two faces, flipped with .is-flipped */
+.bank-card-flip { perspective: 70em; display: block; width: 20em; max-width: 100%; font-size: 16px; }
+.bank-card-flip .bank-card-inner { position: relative; display: block; width: 100%; aspect-ratio: 1.586; transition: transform 0.7s cubic-bezier(.2, .7, .2, 1); transform-style: preserve-3d; }
+.bank-card-flip.is-flipped .bank-card-inner { transform: rotateY(180deg); }
+.bank-card-flip .bank-card { position: absolute; inset: 0; width: 100%; font-size: inherit; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.bank-card-flip .bank-card.back { transform: rotateY(180deg); }
+.bank-card-flip { cursor: pointer; background: none; border: 0; padding: 0; }
+.bank-card-flip:focus-visible { outline: 2px solid var(--color-gold, #b99a70); outline-offset: 4px; border-radius: 1.2em; }
+
+/* ---------- front ---------- */
+.bank-card .bc-brand { position: absolute; top: 1.15em; left: 1.35em; font-family: var(--font-sans, "Manrope", sans-serif); font-weight: 500; font-size: 1.55em; letter-spacing: 0.33em; line-height: 1; color: var(--ink); }
+.bank-card .bc-brand small { display: block; margin-top: 0.7em; padding-left: 0.1em; font-size: 0.42em; font-weight: 500; letter-spacing: 0.95em; color: var(--ink); }
+.bank-card .bc-chip {
+  position: absolute; left: 1.7em; top: 6.1em; width: 3.1em; height: 2.4em; border-radius: 0.45em; background: var(--chip);
+  box-shadow: inset 0 0 0 1px var(--chip-line), 0 0.1em 0.3em rgba(0, 0, 0, 0.18);
+}
+.bank-card .bc-chip::before, .bank-card .bc-chip::after { content: ""; position: absolute; border: 1px solid var(--chip-line); }
+.bank-card .bc-chip::before { left: 0; right: 0; top: 50%; height: 0; border-width: 1px 0 0; box-shadow: 0 -0.55em 0 -0.0em transparent; }
+.bank-card .bc-chip::after { left: 32%; right: 32%; top: 18%; bottom: 18%; border-radius: 0.55em; }
+.bank-card .bc-nfc { position: absolute; top: 1.6em; right: 1.5em; width: 1.5em; height: 2.2em; color: var(--accent); }
+.bank-card .bc-number { position: absolute; left: 1.7em; bottom: 1.2em; display: flex; align-items: center; gap: 0.6em; font-size: 1.35em; letter-spacing: 0.14em; color: var(--accent); }
+.bank-card .bc-number i { width: 0.28em; height: 0.28em; border-radius: 50%; background: currentColor; margin-right: -0.1em; }
+.bank-card .bc-mono { position: absolute; right: 1.5em; bottom: 0.95em; font-family: var(--font-serif, "Cormorant Garamond", serif); font-size: 2.3em; line-height: 1; letter-spacing: -0.04em; color: var(--accent); }
+.bank-card .bc-mono::after { content: "✦"; font-family: sans-serif; font-size: 0.32em; vertical-align: top; margin-left: 0.2em; position: relative; top: 0.35em; }
+.bank-card.card-black .bc-mono::after { content: ""; }
+
+/* ---------- back ----------  all sizes in cqw (1cqw = 1% of the card width), so it scales with the card; proportions follow the reference backs */
+.bank-card { container-type: inline-size; }
+.bank-card.back .bc-top { position: absolute; top: 0; left: 0; right: 0; height: 6.5cqw; padding: 0 3.7cqw; display: flex; justify-content: space-between; align-items: center; font-size: 2.2cqw; letter-spacing: 0.3em; white-space: nowrap; color: var(--ink); }
+.bank-card.back .bc-stripe { position: absolute; top: 6.5cqw; left: 0; right: 0; height: 11.5cqw; background: linear-gradient(180deg, #3b2d29, #231a18); }
+.bank-card.card-silver.back .bc-stripe { background: linear-gradient(180deg, #17181a, #050506); }
+.bank-card.card-black.back .bc-stripe { background: #040404; }
+.bank-card.card-black.back .bc-top { background: rgba(255, 255, 255, 0.04); }
+.bank-card.back .bc-label { position: absolute; left: 3.7cqw; top: 20.6cqw; font-size: 2.1cqw; letter-spacing: 0.22em; white-space: nowrap; color: var(--ink); }
+.bank-card.back .bc-label.right { left: auto; right: 3.7cqw; }
+.bank-card.back .bc-sign { position: absolute; left: 3.7cqw; top: 24.5cqw; width: 68.6cqw; height: 8.4cqw; border-radius: 0.5cqw; background: repeating-linear-gradient(8deg, rgba(120, 130, 140, 0.18) 0 2px, transparent 2px 5px), var(--panel); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08); }
+.bank-card.card-black.back .bc-sign { background: #1b1b1d; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05); }
+.bank-card.back .bc-cvv { position: absolute; left: 73.6cqw; top: 24.5cqw; width: 9.4cqw; height: 8.4cqw; display: flex; align-items: center; justify-content: center; font-size: 3.1cqw; font-family: Arial, sans-serif; border-radius: 0.5cqw; background: #fff; color: #111; }
+.bank-card.card-black.back .bc-cvv { background: transparent; color: #ddd; }
+.bank-card.back .bc-holo { position: absolute; left: 3.6cqw; top: 38.5cqw; width: 14.8cqw; height: 13.5cqw; border-radius: 2.2cqw; background:
+  radial-gradient(circle at 50% 55%, rgba(255, 255, 255, 0.85) 0 24%, transparent 25%),
+  repeating-conic-gradient(from 0deg, rgba(120, 120, 125, 0.65) 0 6deg, rgba(235, 235, 238, 0.9) 6deg 12deg);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18); }
+.bank-card.card-black.back .bc-holo { background: radial-gradient(circle at 50% 55%, #4a4a4d 0 28%, transparent 29%), repeating-conic-gradient(from 0deg, #2a2a2c 0 6deg, #444447 6deg 12deg); }
+.bank-card.back .bc-legal { position: absolute; left: 20.8cqw; top: 38.4cqw; font-size: 1.55cqw; line-height: 2.2; letter-spacing: 0.12em; white-space: nowrap; color: var(--ink-soft); }
+.bank-card.back .bc-logo { position: absolute; right: 3.6cqw; bottom: 4cqw; text-align: center; font-family: var(--font-serif, "Cormorant Garamond", serif); font-size: 8cqw; line-height: 1; letter-spacing: 0.03em; color: var(--ink); }
+.bank-card.back .bc-logo small { display: block; margin-top: 0.4em; font-family: var(--font-sans, "Manrope", sans-serif); font-size: 0.3em; letter-spacing: 0.9em; padding-left: 0.9em; color: var(--ink); }
+
+/* the dashboard grid dims inactive cards */
+.bank-card-flip.is-off { opacity: 0.45; filter: grayscale(1); }

@@ -1,0 +1,113 @@
+/*MOBILE APP: three columns (phone, text, features) on a blue to cream gradient*/
+.mobile-app-section {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 0.9fr; /*middle column a bit wider, right a bit narrower*/
+  align-items: center;
+  gap: 40px;
+  padding: 50px var(--page-padding-x);
+  background: var(--gradient-mobile);
+}
+
+/*centres the phone in its column*/
+.phone-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/*the phone body: dark bezel is just the padding showing the dark background*/
+.phone-frame {
+  width: 190px;
+  height: 340px;
+  padding: 8px; /*this is the bezel thickness*/
+  border-radius: 30px;
+  background: var(--color-ink);
+  box-shadow: 0 24px 40px rgba(var(--shadow-rgb), 0.3);
+  transform: rotate(-4deg); /*little tilt*/
+}
+
+/*the white screen inside the phone*/
+.phone-screen {
+  height: 100%;
+  padding: 22px 14px;
+  border-radius: 23px; /*a bit smaller than the frame so the bezel looks even*/
+  background: #fff;
+  font-size: 10px;
+}
+
+/*"balance" label on the screen*/
+.phone-screen small {
+  color: var(--color-text-muted);
+}
+
+/*the big balance number, display block puts it on its own line*/
+.phone-screen strong {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+/*each transaction row: name left, amount right, thin line underneath*/
+.phone-screen li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/*green for money coming in*/
+.amount-positive {
+  color: var(--color-positive);
+}
+
+/*the heading in the middle column*/
+.mobile-app-text h2 {
+  margin-bottom: 14px;
+  font-size: clamp(30px, 3.4vw, 40px);
+}
+
+/*the paragraph in the middle column, kept narrow*/
+.mobile-app-text p {
+  max-width: 380px;
+  margin-bottom: 24px;
+  color: var(--color-text-muted);
+}
+
+/*App Store and Google Play buttons: dark navy with white text*/
+.store-badge {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 13px;
+}
+
+/*slightly lighter navy on hover*/
+.store-badge:hover {
+  background: var(--color-ink-soft);
+}
+
+/*right column: stacked features with a thin vertical line on the left*/
+.mobile-app-features {
+  display: grid;
+  gap: 28px;
+  padding-left: 32px;
+  border-left: 1px solid var(--color-border);
+}
+
+/*icon and text side by side*/
+.mobile-app-features li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+/*the little gold outlined square, flex-shrink stops it getting squished by long text*/
+.feature-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 4px;
+}

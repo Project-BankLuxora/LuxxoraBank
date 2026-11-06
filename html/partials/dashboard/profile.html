@@ -1,0 +1,27 @@
+<div data-view="profile" hidden>
+  <h1>Профил</h1>
+  <div data-tabs>
+    <div class="tabs" role="tablist"><button role="tab">Настройки</button><button role="tab">Изход</button></div>
+    <section class="panel" role="tabpanel">
+      <label class="row"><span>Език</span>
+        <select data-pref="lang"><option value="bg">Български</option><option value="en">English</option></select></label>
+      <div class="row-group"><p class="note">Известия</p>
+        <label class="row"><span>Преводи</span><input type="checkbox" data-pref="n_transfers"></label>
+        <label class="row"><span>Плащания с карта</span><input type="checkbox" data-pref="n_cards"></label>
+        <label class="row"><span>Сигурност</span><input type="checkbox" data-pref="n_security"></label></div>
+      <label class="row"><span>Двуфакторна защита (2FA)<small>При следващ вход ще поискаме код.</small></span><input type="checkbox" data-pref="twofa"></label>
+      <label class="row"><span>Изглед</span>
+        <select data-pref="theme"><option value="light">Светъл</option><option value="dark">Тъмен</option></select></label>
+      <label class="row"><span>Валута<small>Демо курсове.</small></span>
+        <select data-pref="currency"><option value="EUR">евро</option><option value="USD">долар</option><option value="GBP">британска лира</option><option value="CHF">швейцарски франк</option><option value="RON">румънска лея</option></select></label>
+      <div class="row-group"><p class="note">Достъпност</p>
+        <label class="row"><span>По-едър текст</span><input type="checkbox" data-pref="large"></label>
+        <label class="row"><span>По-плътен текст</span><input type="checkbox" data-pref="bold"></label>
+        <label class="row"><span>Висок контраст</span><input type="checkbox" data-pref="contrast"></label></div>
+    </section>
+    <section class="panel" role="tabpanel">
+      <p class="goal-text">Ще излезете от профила си на това устройство.</p>
+      <button class="button button-gold" type="button" data-logout>Изход</button>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+/* ---------- Security section ---------- */
+
+/*three columns: picture, text, stats*/
+.security-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 40px var(--page-padding-x);
+}
+
+/*less space under the label in this section*/
+.security-section .section-label {
+  margin-bottom: 12px;
+}
+
+/*security heading*/
+.security-text h2 {
+  margin-bottom: 14px;
+  font-size: clamp(26px, 2.8vw, 34px);
+}
+
+/*the paragraph (last p in the box), kept to 360px wide*/
+.security-text p:last-child {
+  max-width: 360px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/*the picture on the left: just a gradient for now, 190px tall*/
+.security-photo {
+  position: relative;
+  height: 190px;
+  background-image: linear-gradient(135deg, #f7f1ea 0%, #ebdfd0 55%, #d3bda3 100%);
+}
+
+/*the thin gold oval drawn on top of the picture using ::after (a fake extra element made by css)*/
+.security-photo::after {
+  content: ""; /*needed or ::after won't show up*/
+  position: absolute;
+  inset: 24px 50px; /*shortcut for top/bottom 24px and left/right 50px*/
+  border: 2px solid rgba(196, 164, 123, 0.7);
+  border-radius: 50%; /*round corners on a rectangle = oval*/
+}
+
+/*the three stats in a row, equal widths*/
+.security-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*each stat: centred with a thin line on its left*/
+.security-stats li {
+  padding: 0 14px;
+  border-left: 1px solid var(--color-border);
+  text-align: center;
+}
+
+/*first one doesn't need a line*/
+.security-stats li:first-child {
+  border-left: 0;
+}
+
+/*the number*/
+.security-stats strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/*the small label under the number*/
+.security-stats span {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
